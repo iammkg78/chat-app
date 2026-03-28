@@ -20,10 +20,10 @@ app.use(cors({origin:"https://chat-app-s226.onrender.com/",credentials:true}))
 app.use(express.json())
 app.use(cookieParser())
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get(/^\/(?!api).*$/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 app.use("/api/auth",authrouter)
